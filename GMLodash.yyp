@@ -1,9 +1,8 @@
 {
   "resources": [
-    {"id":{"name":"StringUtility","path":"scripts/StringUtility/StringUtility.yy",},"order":5,},
     {"id":{"name":"UnitTests","path":"scripts/UnitTests/UnitTests.yy",},"order":4,},
     {"id":{"name":"GMLodash","path":"scripts/GMLodash/GMLodash.yy",},"order":3,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"rUnitTests","path":"rooms/rUnitTests/rUnitTests.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
@@ -28,7 +27,7 @@
     "children": [],
   },
   "RoomOrder": [
-    {"name":"Room1","path":"rooms/Room1/Room1.yy",},
+    {"name":"rUnitTests","path":"rooms/rUnitTests/rUnitTests.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Rooms.yy","order":0,"resourceVersion":"1.0","name":"Rooms","tags":[],"resourceType":"GMFolder",},
