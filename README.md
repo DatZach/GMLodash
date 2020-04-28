@@ -15,11 +15,13 @@ You can simply copy and paste the contents of [GMlodash.gml](https://github.com/
 Visit the [Documentation](https://github.com/DatZach/GMLodash/wiki) for full documentation on the API.
 ### Examples
 ```javascript
-_.filter([1,2,3,4], function (x) { return x <= 2; }) => [1,2]   // array -> array
+_.filter([1,2,3,4], function (x) { return x <= 2; });
+// => [1,2]   array -> array
 
 var list = ds_list_create();
 ds_list_add(1,2,3,4);
-_.filter(list, function (x) { return x <= 2; }) => list(1,2)    // list -> list
+_.filter(list, function (x) { return x <= 2; });
+// => list(1,2)    list -> list
 ```
 ```javascript
 var inventory = {
@@ -30,20 +32,24 @@ var inventory = {
     ]
 };
 
-// List of the the value of property "itemId" for each element
-_.map(inventory.items, "itemId") => ["Sword","Map","Gem"]
+/* List of the the value of property "itemId" for each element */
+_.map(inventory.items, "itemId");
+// => ["Sword","Map","Gem"]
 ```
 ```javascript
-// Get the total stock of inventory
-_.reduce(inventory, "stock", 0) => 6
+/* Get the total stock of inventory */
+_.reduce(inventory, "stock", 0);
+// => 6
 ```
 ```javascript
-// Some elements's itemId property = "Map"
-_.some(inventory, ["itemId","Map"]) => true
+/* Some elements's itemId property = "Map" */
+_.some(inventory, ["itemId","Map"]);
+// => true
 ```
 ```javascript
-// All items in the inventory have >= 1 stock (truthy evaluation)
-_.every(inventory, "stock") => true
+/* All items in the inventory have >= 1 stock (truthy evaluation) */
+_.every(inventory, "stock");
+// => true
 ```
 
 ## Running the Unit  Tests
