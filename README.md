@@ -9,7 +9,7 @@ GameMaker Studio 2 allows you to import assets, including scripts and shaders, d
 
 ### Installation via Copy/Paste
 
-You can simply copy and paste the contents of [GMlodash.gml](https://github.com/DatZach/Destructors/blob/master/scripts/GMLodash/GMLodash.gml) into a new Script in your project.
+You can simply copy and paste the contents of [GMlodash.gml](https://github.com/DatZach/GMLodash/blob/master/scripts/GMLodash/GMLodash.gml) into a new Script in your project.
 
 ## Usage
 Visit the [Documentation](https://github.com/DatZach/GMLodash/wiki) for full documentation on the API.
