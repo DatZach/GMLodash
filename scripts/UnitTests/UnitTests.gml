@@ -774,10 +774,10 @@
 		// TODO
 		
 		// _.toList
-		// TODO
+		assert_equal(_.toList([1,2,3]), list(1,2,3));
 		
 		// _.toMap
-		// TODO
+		assert_equal(_.toMap({ a: 1 }), map({ a: 1 }));
 		
 		// _.toStruct
 		// TODO

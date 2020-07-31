@@ -623,7 +623,7 @@ function GMLodash() constructor {
 		var keys = adapter.keys(struct);
 		for (var i = 0, isize = adapter.size(struct); i < isize; ++i) {
 			var key = keys[i];
-			var value = adapter.get(collection, key);
+			var value = adapter.get(struct, key);
 			if (!trackChildren)
 				ds_map_add(result, key, value);
 			else if (is_real(value)) {
@@ -652,11 +652,11 @@ function GMLodash() constructor {
 		if (map == undefined)
 			return result;
 		
-		var adapter = get_adapter_for(struct);
-		var keys = adapter.keys(struct);
-		for (var i = 0, isize = adapter.size(struct); i < isize; ++i) {
+		var adapter = get_adapter_for(map);
+		var keys = adapter.keys(map);
+		for (var i = 0, isize = adapter.size(map); i < isize; ++i) {
 			var key = keys[i];
-			var value = adapter.get(collection, key);
+			var value = adapter.get(map, key);
 			
 			if (trackChildren && is_real(value)) {
 				if (ds_exists(value, ds_type_list))
