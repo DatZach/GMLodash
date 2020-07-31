@@ -326,7 +326,7 @@
 			assert_equal(x, i + 1);
 			++a;
 			if (x == 3)
-				return true;
+				return false;
 		});
 		assert_equal(a, 3);
 		a = 0;
@@ -336,7 +336,7 @@
 			assert_equal(x, i + 1);
 			++a;
 			if (x == 3)
-				return true;
+				return false;
 		});
 		assert_equal(a, 3);
 		a = 0;
@@ -346,7 +346,7 @@
 			assert_equal(x, string_char_at(collection, i + 1));
 			++a;
 			if (x == ",")
-				return true;
+				return false;
 		});
 		assert_equal(a, 6);
 		a = 0;
@@ -356,7 +356,7 @@
 			assert_equal(x, variable_struct_get(collection, i));
 			++a;
 			if (i == "c")
-				return true;
+				return false;
 		});
 		assert_equal(a, 3);
 		//a = 0;

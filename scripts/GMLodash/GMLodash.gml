@@ -31,7 +31,7 @@ function GMLodash() constructor {
 		for (var i = 0, isize = adapter.size(collection); i < isize; ++i) {
 			var key = adapter.isMap ? keys[i] : i;
 			var value = adapter.get(collection, key);
-			if (iteratee(value, key, collection) != 0)
+			if (iteratee(value, key, collection) == false)
 				break;
 		}
 	};
@@ -43,7 +43,7 @@ function GMLodash() constructor {
 		for (var i = adapter.size(collection) - 1; i >= 0; --i) {
 			var key = adapter.isMap ? keys[i] : i;
 			var value = adapter.get(collection, key);
-			if (iteratee(value, key, collection) != 0)
+			if (iteratee(value, key, collection) == false)
 				break;
 		}
 	};
