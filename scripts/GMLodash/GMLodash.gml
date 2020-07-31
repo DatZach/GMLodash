@@ -2,7 +2,7 @@
 
 function GMLodash() constructor {
 	
-	static VERSION = "1.0.0";
+	static VERSION = "1.1.0";
 	
 	/*** COLLECTION ***/
 	
