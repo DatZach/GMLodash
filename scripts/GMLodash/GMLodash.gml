@@ -6,7 +6,7 @@ function GMLodash() constructor {
 	
 	/*** COLLECTION ***/
 	
-	countBy = function countBy(collection, iteratee) {
+	static countBy = function countBy(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_map_adapter_for(collection);
 		var result = radapter.create(0);
@@ -24,7 +24,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	forEach = function forEach(collection, iteratee) {
+	static forEach = function forEach(collection, iteratee) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		
@@ -36,7 +36,7 @@ function GMLodash() constructor {
 		}
 	};
 	
-	forEachRight = function forEachRight(collection, iteratee) {
+	static forEachRight = function forEachRight(collection, iteratee) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		
@@ -48,7 +48,7 @@ function GMLodash() constructor {
 		}
 	};
 	
-	every = function every(collection, iteratee) {
+	static every = function every(collection, iteratee) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		iteratee = get_iteratee(iteratee);
@@ -63,7 +63,7 @@ function GMLodash() constructor {
 		return true;
 	};
 
-	filter = function filter(collection, iteratee) {
+	static filter = function filter(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_collection_adapter_for(collection)
 		var result = radapter.create(0); // TODO Optimize by truncating instead of growing
@@ -80,7 +80,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	find = function find(collection, iteratee, fromIndex) {
+	static find = function find(collection, iteratee, fromIndex) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		iteratee = get_iteratee(iteratee);
@@ -96,7 +96,7 @@ function GMLodash() constructor {
 		return undefined;
 	};
 	
-	findLast = function findLast(collection, iteratee, fromIndex) {
+	static findLast = function findLast(collection, iteratee, fromIndex) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		iteratee = get_iteratee(iteratee);
@@ -112,7 +112,7 @@ function GMLodash() constructor {
 		return undefined;
 	};
 	
-	flatMap = function flatMap(collection, iteratee) {
+	static flatMap = function flatMap(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_collection_adapter_for(collection);
 		var keys = cadapter.keys(collection);
@@ -137,7 +137,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	flatMapDeep = function flatMapDeep(collection, iteratee) {
+	static flatMapDeep = function flatMapDeep(collection, iteratee) {
 		var adapter = get_adapter_for(collection);
 		var result = adapter.create(0);
 		iteratee = get_iteratee(iteratee);
@@ -167,7 +167,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	flatMapDepth = function flatMapDepth(collection, iteratee, maxDepth) {
+	static flatMapDepth = function flatMapDepth(collection, iteratee, maxDepth) {
 		var adapter = get_adapter_for(collection);
 		var result = adapter.create(0);
 		iteratee = get_iteratee(iteratee);
@@ -202,7 +202,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	groupBy = function groupBy(collection, iteratee) {
+	static groupBy = function groupBy(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var roadapter = get_map_adapter_for(collection);
 		var riadapter = get_collection_adapter_for(collection);
@@ -228,7 +228,7 @@ function GMLodash() constructor {
 		return oresult;
 	};
 	
-	includes = function includes(collection, value, fromIndex) {
+	static includes = function includes(collection, value, fromIndex) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		
@@ -243,7 +243,7 @@ function GMLodash() constructor {
 		return false;
 	};
 	
-	keyBy = function keyBy(collection, iteratee) {
+	static keyBy = function keyBy(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_map_adapter_for(collection);
 		var keys = cadapter.keys(collection);
@@ -261,7 +261,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	map = function map(collection, iteratee) {
+	static map = function map(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_collection_adapter_for(collection);
 		var keys = cadapter.keys(collection);
@@ -279,7 +279,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	partition = function partition(collection, iteratee) {
+	static partition = function partition(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_collection_adapter_for(collection);
 		var keys = cadapter.keys(collection);
@@ -301,7 +301,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	reduce = function reduce(collection, iteratee, accumulator) {
+	static reduce = function reduce(collection, iteratee, accumulator) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		var isize = adapter.size(collection);
@@ -324,7 +324,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	reduceRight = function reduceRight(collection, iteratee, accumulator) {
+	static reduceRight = function reduceRight(collection, iteratee, accumulator) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		var i = adapter.size(collection) - 1;
@@ -347,7 +347,7 @@ function GMLodash() constructor {
 	};
 	
 	// TODO Remove?
-	sample = function sample(collection) {
+	static sample = function sample(collection) {
 		var adapter = get_adapter_for(collection);
 		var isize = adapter.size(collection);
 		if (isize == 0)
@@ -360,7 +360,7 @@ function GMLodash() constructor {
 	};
 	
 	// TODO Remove?
-	sampleSize = function sampleSize(collection, n) {
+	static sampleSize = function sampleSize(collection, n) {
 		var result = shuffle(collection, n);
 		var adapter = get_adapter_for(result);
 		adapter.resize(result, n);
@@ -368,7 +368,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	shuffle = function shuffle(collection, n) {
+	static shuffle = function shuffle(collection, n) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_collection_adapter_for(collection);
 		n = n == undefined ? cadapter.size(collection) : n;
@@ -393,12 +393,12 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	size = function size(collection) {
+	static size = function size(collection) {
 		var adapter = get_adapter_for(collection);
 		return adapter.size(collection);
 	};
 	
-	some = function some(collection, iteratee) {
+	static some = function some(collection, iteratee) {
 		var adapter = get_adapter_for(collection);
 		var keys = adapter.keys(collection);
 		iteratee = get_iteratee(iteratee);
@@ -416,7 +416,7 @@ function GMLodash() constructor {
 	/*** LANGUAGE ***/
 	
 	// TODO This needs to be VERY heavily optimized
-	isEqual = function isEqual(a, b) {
+	static isEqual = function isEqual(a, b) {
 		if (a == undefined || b == undefined)
 			return a == b;
 		else if (is_collection(a) && is_collection(b)) {
@@ -522,7 +522,7 @@ function GMLodash() constructor {
 		return false;
 	};
 	
-	toString = function toString(value) {
+	static toString = function toString(value) {
 		if (is_real(value)) {
 			if (ds_exists(value, ds_type_list)) {
 				var result = "[ ";
@@ -554,7 +554,7 @@ function GMLodash() constructor {
 		return string(value);
 	};
 	
-	toArray = function toArray(collection, trackChildren) {
+	static toArray = function toArray(collection, trackChildren) {
 		if (collection == undefined)
 			return [];
 		
@@ -578,7 +578,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	toList = function toList(collection, trackChildren) {
+	static toList = function toList(collection, trackChildren) {
 		var result = ds_list_create();
 		trackChildren = trackChildren == undefined ? true : trackChildren;
 		
@@ -612,7 +612,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	toMap = function toMap(struct, trackChildren) {
+	static toMap = function toMap(struct, trackChildren) {
 		var result = ds_map_create();
 		trackChildren = trackChildren == undefined ? true : trackChildren;
 		
@@ -645,7 +645,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	toStruct = function toStruct(map, trackChildren) {
+	static toStruct = function toStruct(map, trackChildren) {
 		var result = {};
 		trackChildren = trackChildren == undefined ? true : trackChildren;
 		
@@ -671,7 +671,7 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	join = function join(collection, seperator) {
+	static join = function join(collection, seperator) {
 		var adapter = get_adapter_for(collection);
 		var result = "";
 		seperator = seperator == undefined ? "," : seperator;
@@ -706,7 +706,7 @@ function GMLodash() constructor {
 	
 	/*** UTILITY ***/
 	
-	identity = function identity(x) {
+	static identity = function identity(x) {
 		return x;
 	};
 
@@ -950,9 +950,6 @@ function gmlodash_ds_exists(index, type) {
 }
 
 function gmLodashInstance() {
-	static instance = undefined;
-	if (instance == undefined)
-		instance = new GMLodash();
-	
+	static instance = new GMLodash();
 	return instance;
 }

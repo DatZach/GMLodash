@@ -898,5 +898,5 @@
 	
 	// GMBUG This is moved to Room1 creation code cause the
 	//       debugger doesn't attach here
-	//unitTests();
+	unitTests();
 })();
