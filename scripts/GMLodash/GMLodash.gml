@@ -671,19 +671,19 @@ function GMLodash() constructor {
 		return result;
 	};
 	
-	static join = function join(collection, seperator) {
+	static join = function join(collection, separator) {
 		var adapter = get_adapter_for(collection);
 		var result = "";
-		seperator = seperator == undefined ? "," : seperator;
+		separator = separator == undefined ? "," : separator;
 		
 		var stack = ds_stack_create();
 		for (var i = 0, isize = adapter.size(collection); i < isize; ++i) {
 			var value = adapter.get(collection, i);
 			ds_stack_push(stack, [value, isize - 1]);
 			while(!ds_stack_empty(stack)) {
-				var args = ds_stack_pop(stack);
-				value = args[0];
-				var limit = args[1];
+				var arguments = ds_stack_pop(stack);
+				value = arguments[0];
+				var limit = arguments[1];
 				
 				if (is_collection(value)) {
 					var jadapter = get_adapter_for(value);
@@ -695,7 +695,7 @@ function GMLodash() constructor {
 				else {
 					result += string(value);
 					if (i < limit)
-						result += seperator;
+						result += separator;
 				}
 			}
 		}
