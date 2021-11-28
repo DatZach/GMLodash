@@ -1,3 +1,11 @@
+// Project:
+// https://github.com/DatZach/GMLodash
+
+// Documentation:
+// https://github.com/DatZach/GMLodash/wiki/Collections
+// https://github.com/DatZach/GMLodash/wiki/Language
+// https://github.com/DatZach/GMLodash/wiki/Utility
+
 #macro _ gmLodashInstance()
 
 function GMLodash() constructor {
@@ -242,7 +250,34 @@ function GMLodash() constructor {
 		
 		return false;
 	};
-	
+
+	// For simple array-checking, this is more performant than the `includes` function.
+	static flatArrayIncludes = function flatArrayIncludes(array, value) {
+	  for(var i = 0; i < array_length(array); i++) {
+	    if(array[i] == value) {
+	      return true;
+	    }
+	  }
+	  return false;
+	};
+
+	// Returns the index of an item within a collection.
+	static indexOf = function indexOf(collection, iteratee) {
+		var adapter = get_adapter_for(collection);
+		var keys = adapter.keys(collection);
+		iteratee = get_iteratee(iteratee);
+
+		for (var i = 0, isize = adapter.size(collection); i < isize; ++i) {
+			var key = adapter.isMap ? keys[i] : i;
+			var value = adapter.get(collection, key);
+			if(iteratee(value, key, collection)) {
+				return i;
+			}
+		}
+
+		return undefined;
+	};
+
 	static keyBy = function keyBy(collection, iteratee) {
 		var cadapter = get_adapter_for(collection);
 		var radapter = get_map_adapter_for(collection);
@@ -516,6 +551,8 @@ function GMLodash() constructor {
 		}
 		else if (is_ptr(a) && is_ptr(b))
 			return a == b;
+		else if (is_bool(a) && is_bool(b))
+			return a == b;
 
 		// TODO More types?
 		
@@ -699,7 +736,6 @@ function GMLodash() constructor {
 				}
 			}
 		}
-		
 		ds_stack_destroy(stack);
 		return result;
 	};
